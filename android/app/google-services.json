@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "561101473089",
+    "project_id": "lti-pdvexpress",
+    "storage_bucket": "lti-pdvexpress.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:561101473089:android:f56797f786ed8c26484dc0",
+        "android_client_info": {
+          "package_name": "br.com.luizltisistemas.pdvexpress"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "561101473089-mc9vhpge6ri6bi32it9ihd8qqm8ncfvb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.luizltisistemas.pdvexpress",
+            "certificate_hash": "e73f68fc3a926742b3bed9314b538d9fc384e1c9"
+          }
+        },
+        {
+          "client_id": "561101473089-angh8jso24u0ukf1nug7vovvg766airi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRWeFti-LThgkk3mo-PbAJI4-4MNXnnnM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "561101473089-angh8jso24u0ukf1nug7vovvg766airi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

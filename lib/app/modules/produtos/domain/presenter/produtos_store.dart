@@ -134,7 +134,7 @@ abstract class _ProdutosStoreBase with Store {
 
     _controllerNome.text = produto.nome;
     _controllerDescricao.text = produto.descricao!;
-    _controllerQuantidade.text = produto.quantidade.toString()!;
+    _controllerQuantidade.text = produto.quantidade.toString();
     _controllerValor.text = produto.valor;
 
     showBottomSheet(
@@ -236,7 +236,8 @@ abstract class _ProdutosStoreBase with Store {
             onPressed: () => _activated(_, produto.uuid!),
             child: const Text(
               'Sim, quero ativar',
-              style: TextStyle(color: successColor, fontWeight: FontWeight.bold),
+              style:
+                  TextStyle(color: successColor, fontWeight: FontWeight.bold),
             ),
           ),
           TextButton(

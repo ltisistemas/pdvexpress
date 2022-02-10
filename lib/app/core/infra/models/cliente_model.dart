@@ -7,7 +7,8 @@ class ClienteModel extends Cliente {
     String nome,
     String? telefone,
     String? email,
-  ) : super(uuid, uuidUsuario, nome, telefone, email);
+    bool? active,
+  ) : super(uuid, uuidUsuario, nome, telefone, email, active);
 
   factory ClienteModel.fromJson(Map json) {
     final pUuid = json.containsKey('uuid') ? json['uuid'] : '';
@@ -18,6 +19,7 @@ class ClienteModel extends Cliente {
       json['nome'],
       json['telefone'],
       json['email'],
+      json['active'],
     );
   }
 
@@ -28,6 +30,7 @@ class ClienteModel extends Cliente {
     data['nome'] = nome;
     data['telefone'] = telefone;
     data['email'] = email;
+    data['active'] = active;
 
     return data;
   }

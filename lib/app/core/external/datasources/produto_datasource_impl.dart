@@ -14,6 +14,7 @@ class ProdutoDatasourceImpl implements ProdutoDatasource {
         'descricao': produto.descricao,
         'quantidade': produto.quantidade,
         'valor': produto.valor,
+        'active': true,
       });
 
       return ApiResponseModel.ok(produto, '');

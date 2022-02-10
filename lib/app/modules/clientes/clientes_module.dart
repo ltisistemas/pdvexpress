@@ -5,6 +5,9 @@ import 'package:pdvexpress/app/core/infra/repositories/clientes_repository_impl.
 import 'package:pdvexpress/app/modules/clientes/domain/presenter/clientes_page.dart';
 import 'package:pdvexpress/app/modules/clientes/domain/presenter/clientes_store.dart';
 import 'package:pdvexpress/app/modules/clientes/domain/usecases/adicionar_cliente.dart';
+import 'package:pdvexpress/app/modules/clientes/domain/usecases/ativar_cliente.dart';
+import 'package:pdvexpress/app/modules/clientes/domain/usecases/atualizar_cliente.dart';
+import 'package:pdvexpress/app/modules/clientes/domain/usecases/excluir_cliente.dart';
 
 class ClientesModule extends Module {
   @override
@@ -15,6 +18,12 @@ class ClientesModule extends Module {
         (i) => ClientesRepositoryImpl(i.get<ClientesDatasourceImpl>())),
     Bind.lazySingleton(
         (i) => CadastrarClienteImpl(i.get<ClientesRepositoryImpl>())),
+    Bind.lazySingleton(
+        (i) => AtualizarClienteImpl(i.get<ClientesRepositoryImpl>())),
+    Bind.lazySingleton(
+        (i) => ExcluirClienteImpl(i.get<ClientesRepositoryImpl>())),
+    Bind.lazySingleton(
+        (i) => AtivarClienteImpl(i.get<ClientesRepositoryImpl>())),
   ];
 
   @override

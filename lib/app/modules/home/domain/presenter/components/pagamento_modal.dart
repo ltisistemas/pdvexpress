@@ -6,7 +6,6 @@ import 'package:pdvexpress/app/core/domain/entities/produto.dart';
 import 'package:pdvexpress/app/core/domain/entities/user_logged.dart';
 import 'package:pdvexpress/app/core/domain/utils/constansts.dart';
 import 'package:pdvexpress/app/core/infra/models/cliente_model.dart';
-import 'package:pdvexpress/app/core/infra/models/produto_model.dart';
 
 class PagamentoModal extends StatefulWidget {
   final BuildContext ctx;
@@ -160,13 +159,13 @@ class _PagamentoModalState extends State<PagamentoModal> {
                       ),
                     ).copyWith(
                       side: MaterialStateProperty.resolveWith<BorderSide>(
-                            (Set<MaterialState> states) {
+                        (Set<MaterialState> states) {
                           return const BorderSide(color: dangerColor, width: 1);
                         },
                       ),
                     ).copyWith(
                       minimumSize: MaterialStateProperty.resolveWith(
-                            (Set<MaterialState> states) {
+                        (Set<MaterialState> states) {
                           return const Size(double.infinity, 40);
                         },
                       ),
@@ -198,6 +197,7 @@ class _PagamentoModalState extends State<PagamentoModal> {
     return storeInstance
         .collection('clientes')
         .where('uuid_usuario', isEqualTo: widget.user.uuid)
+        .where('active', isEqualTo: true)
         .get()
         .then(
       (value) {

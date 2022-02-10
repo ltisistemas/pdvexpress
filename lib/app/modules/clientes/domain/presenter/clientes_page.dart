@@ -58,14 +58,47 @@ class _ClientesHomeState extends ModularState<ClientesHome, ClientesStore> {
                       return ListView.separated(
                         itemBuilder: (_, __) {
                           final Cliente cliente = data.docs[__].data();
+                          cliente.uuid = data.docs[__].id;
 
                           return Container(
-                            color: darkThemeInputs,
+                            color:
+                                cliente.active! ? darkThemeInputs : dangerColor,
                             margin: const EdgeInsets.only(top: 8.0),
                             child: ListTile(
                               title: Text(
                                 cliente.nome,
                                 style: const TextStyle(color: lightColor),
+                              ),
+                              subtitle: Text(
+                                'Telefone: ${cliente.telefone}',
+                                style: const TextStyle(color: lightColor),
+                              ),
+                              trailing: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  IconButton(
+                                    onPressed: () =>
+                                        controller.edit(context, cliente),
+                                    icon: const Icon(Icons.edit,
+                                        color: lightColor),
+                                  ),
+                                  !!cliente.active!
+                                      ? IconButton(
+                                          onPressed: () =>
+                                              controller.remove(cliente),
+                                          icon: const Icon(Icons.delete,
+                                              color: lightColor),
+                                        )
+                                      : Container(),
+                                  !cliente.active!
+                                      ? IconButton(
+                                          onPressed: () =>
+                                              controller.activated(cliente),
+                                          icon: const Icon(Icons.check_circle,
+                                              color: lightColor),
+                                        )
+                                      : Container(),
+                                ],
                               ),
                             ),
                           );

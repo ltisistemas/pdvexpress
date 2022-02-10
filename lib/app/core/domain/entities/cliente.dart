@@ -4,6 +4,7 @@ class Cliente {
   final String nome;
   final String? telefone;
   final String? email;
+  final bool? active;
 
   Cliente(
     this.uuid,
@@ -11,5 +12,6 @@ class Cliente {
     this.nome,
     this.telefone,
     this.email,
+    this.active,
   );
 }

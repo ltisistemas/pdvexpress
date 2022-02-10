@@ -194,13 +194,13 @@ abstract class _ProdutosStoreBase with Store {
   Future<void> remove(Produto produto) async {
     asuka.showDialog(
       builder: (_) => AlertDialog(
-        title: const Text('Exclusão de produto'),
-        content: Text('Você irá excluir o produto: \n${produto.nome}?'),
+        title: const Text('Desativação de produto'),
+        content: Text('Você irá desativar o produto: \n${produto.nome}?'),
         actions: [
           TextButton(
             onPressed: () => _remove(_, produto.uuid!),
             child: const Text(
-              'Sim, quero excluir',
+              'Sim, quero desativar',
               style: TextStyle(color: dangerColor),
             ),
           ),

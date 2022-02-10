@@ -25,9 +25,9 @@
 
 - [x] Listar
 - [x] Cadastrar
-- [ ] Edição
-- [ ] Exclusão logica
-- [ ] Ativação logica
+- [x] Edição
+- [x] Exclusão logica
+- [x] Ativação logica
 - [ ] Listar pedidos
 
 ## PDV

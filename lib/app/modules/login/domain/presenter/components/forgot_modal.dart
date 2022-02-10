@@ -23,7 +23,7 @@ class ForgotModal extends StatelessWidget {
           child: Material(
             child: Container(
               width: MediaQuery.of(ctx).size.width * 0.95,
-              height: MediaQuery.of(ctx).size.height * 0.43,
+              height: MediaQuery.of(ctx).size.height * 0.35,
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(4),
@@ -67,7 +67,7 @@ class ForgotModal extends StatelessWidget {
                         Icon(Icons.check_circle, color: lightColor),
                         SizedBox(width: 8),
                         Text(
-                          'Realizar cadastro',
+                          'Enviar reset de senha',
                           style: TextStyle(color: lightColor),
                         )
                       ],

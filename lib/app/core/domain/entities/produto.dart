@@ -5,6 +5,7 @@ class Produto {
   final String? descricao;
   final int? quantidade;
   final String valor;
+  final bool? active;
 
   Produto(
     this.uuid,
@@ -13,5 +14,6 @@ class Produto {
     this.descricao,
     this.quantidade,
     this.valor,
+    this.active,
   );
 }

@@ -24,4 +24,51 @@ class ProdutoDatasourceImpl implements ProdutoDatasource {
     }
   }
 
+  @override
+  Future<ApiResponse> update(Produto produto) async {
+    try {
+      await storeInstance.collection('produtos').doc(produto.uuid).update({
+        'nome': produto.nome,
+        'descricao': produto.descricao,
+        'quantidade': produto.quantidade,
+        'valor': produto.valor,
+      });
+
+      return ApiResponseModel.ok(produto, '');
+    } catch (e) {
+      print('---> Datasource');
+      print(e);
+      return ApiResponseModel.error('Erro ao realizar o salvamento');
+    }
+  }
+
+  @override
+  Future<ApiResponse> destroy(String uid) async {
+    try {
+      await storeInstance.collection('produtos').doc(uid).update({
+        'active': false,
+      });
+
+      return ApiResponseModel.ok(true, '');
+    } catch (e) {
+      print('---> Datasource');
+      print(e);
+      return ApiResponseModel.error('Erro ao realizar o salvamento');
+    }
+  }
+
+  @override
+  Future<ApiResponse> activated(String uid) async {
+    try {
+      await storeInstance.collection('produtos').doc(uid).update({
+        'active': true,
+      });
+
+      return ApiResponseModel.ok(true, '');
+    } catch (e) {
+      print('---> Datasource');
+      print(e);
+      return ApiResponseModel.error('Erro ao realizar o salvamento');
+    }
+  }
 }

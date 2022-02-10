@@ -73,20 +73,24 @@ class _ProdutosHomeState extends ModularState<ProdutosHome, ProdutosStore> {
                           produto.uuid = data.docs[__].id;
 
                           return Container(
-                            color: darkThemeBackground,
+                            color: produto.active! ? darkThemeBackground : dangerColor,
                             margin: const EdgeInsets.only(top: 8.0),
                             child: ListTile(
                               trailing: Row(
                                   mainAxisSize: MainAxisSize.min,
                                 children: [
                                   IconButton(
-                                    onPressed: () => controller.edit(),
+                                    onPressed: () => controller.edit(context, produto),
                                     icon: const Icon(Icons.edit, color: lightColor),
                                   ),
-                                  IconButton(
-                                    onPressed: () => controller.remove(),
-                                    icon: const Icon(Icons.delete, color: dangerColor),
-                                  )
+                                  !!produto.active! ? IconButton(
+                                    onPressed: () => controller.remove(produto),
+                                    icon: const Icon(Icons.delete, color: lightColor),
+                                  ) : Container(),
+                                  !produto.active! ? IconButton(
+                                    onPressed: () => controller.activated(produto),
+                                    icon: const Icon(Icons.check_circle, color: lightColor),
+                                  ) : Container(),
                                 ],
                               ),
                               title: Text(

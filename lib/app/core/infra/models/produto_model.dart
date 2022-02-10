@@ -8,7 +8,8 @@ class ProdutoModel extends Produto {
     String? descricao,
     int? quantidade,
     String valor,
-  ) : super(uuid, uuidUsuario, nome, descricao, quantidade, valor);
+    bool active,
+  ) : super(uuid, uuidUsuario, nome, descricao, quantidade, valor, active);
 
   factory ProdutoModel.fromJson(Map json) {
     final pUuid = json.containsKey('uuid') ? json['uuid'] : '';
@@ -23,6 +24,7 @@ class ProdutoModel extends Produto {
       json['descricao'],
       qte,
       valor,
+      json['active'],
     );
   }
 
@@ -36,6 +38,7 @@ class ProdutoModel extends Produto {
       json['descricao'],
       json['quantidade'],
       json['valor'],
+      json['active'],
     );
   }
 
@@ -47,6 +50,7 @@ class ProdutoModel extends Produto {
     data['descricao'] = descricao;
     data['quantidade'] = quantidade.toString();
     data['valor'] = valor;
+    data['active'] = valor;
 
     return data;
   }

@@ -49,15 +49,43 @@ mixin _$ProdutosStore on _ProdutosStoreBase, Store {
   final _$editAsyncAction = AsyncAction('_ProdutosStoreBase.edit');
 
   @override
-  Future<void> edit() {
-    return _$editAsyncAction.run(() => super.edit());
+  Future<void> edit(dynamic context, Produto produto) {
+    return _$editAsyncAction.run(() => super.edit(context, produto));
+  }
+
+  final _$_editAsyncAction = AsyncAction('_ProdutosStoreBase._edit');
+
+  @override
+  Future<void> _edit(Produto produto) {
+    return _$_editAsyncAction.run(() => super._edit(produto));
   }
 
   final _$removeAsyncAction = AsyncAction('_ProdutosStoreBase.remove');
 
   @override
-  Future<void> remove() {
-    return _$removeAsyncAction.run(() => super.remove());
+  Future<void> remove(Produto produto) {
+    return _$removeAsyncAction.run(() => super.remove(produto));
+  }
+
+  final _$_removeAsyncAction = AsyncAction('_ProdutosStoreBase._remove');
+
+  @override
+  Future<void> _remove(dynamic ctx, String uid) {
+    return _$_removeAsyncAction.run(() => super._remove(ctx, uid));
+  }
+
+  final _$activatedAsyncAction = AsyncAction('_ProdutosStoreBase.activated');
+
+  @override
+  Future<void> activated(Produto produto) {
+    return _$activatedAsyncAction.run(() => super.activated(produto));
+  }
+
+  final _$_activatedAsyncAction = AsyncAction('_ProdutosStoreBase._activated');
+
+  @override
+  Future<void> _activated(dynamic ctx, String uid) {
+    return _$_activatedAsyncAction.run(() => super._activated(ctx, uid));
   }
 
   @override

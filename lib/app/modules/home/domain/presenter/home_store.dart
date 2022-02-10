@@ -82,6 +82,7 @@ abstract class _HomeStoreBase with Store {
       return storeInstance
           .collection('produtos')
           .where('uuid_usuario', isEqualTo: userLogged.uuid)
+          .where('active', isEqualTo: true)
           .get()
           .then((value) {
         for (var produtoDoc in value.docs) {

@@ -17,8 +17,9 @@
 
 - [x] Listar
 - [x] Cadastrar
-- [ ] Edição
-- [ ] Exclusão logica
+- [x] Edição
+- [x] Exclusão logica
+- [x] Ativação logica
 
 ## Clientes
 
@@ -26,4 +27,13 @@
 - [x] Cadastrar
 - [ ] Edição
 - [ ] Exclusão logica
+- [ ] Ativação logica
 - [ ] Listar pedidos
+
+## PDV
+
+#### Vender
+
+- [x] Filtrar por usuário logado
+- [x] Filtrar por produtos ativos
+- [ ] Filtrar por clientes ativos

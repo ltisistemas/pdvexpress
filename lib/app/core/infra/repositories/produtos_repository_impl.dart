@@ -27,4 +27,53 @@ class ProdutoRepositoryImpl implements ProdutoRepository {
       return Left(ErrorOrderFailure());
     }
   }
+
+  @override
+  Future<Either<ErrorOrder, Produto>> update(Map produto) async {
+    try {
+      final model = ProdutoModel.fromJson(produto);
+      final ApiResponse resultSet = await datasource.update(model);
+      if (resultSet.ok) {
+        return Right(resultSet.result);
+      }
+
+      return Left(ErrorOrderNotFound());
+    } catch (e) {
+      print('----> Repo');
+      print(e);
+      return Left(ErrorOrderFailure());
+    }
+  }
+
+  @override
+  Future<Either<ErrorOrder, bool>> destroy(String uid) async {
+    try {
+      final ApiResponse resultSet = await datasource.destroy(uid);
+      if (resultSet.ok) {
+        return const Right(true);
+      }
+
+      return Left(ErrorOrderNotFound());
+    } catch (e) {
+      print('----> Repo');
+      print(e);
+      return Left(ErrorOrderFailure());
+    }
+  }
+
+  @override
+  Future<Either<ErrorOrder, bool>> activated(String uid) async {
+    try {
+      final ApiResponse resultSet = await datasource.activated(uid);
+      if (resultSet.ok) {
+        return const Right(true);
+      }
+
+      return Left(ErrorOrderNotFound());
+    } catch (e) {
+      print('----> Repo');
+      print(e);
+      return Left(ErrorOrderFailure());
+    }
+  }
 }
